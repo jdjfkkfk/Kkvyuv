@@ -21,9 +21,10 @@
 5. Open `http://localhost:5173` in your browser.
 6. **(Optional)** Change the site logo by replacing `/public/logo.png` with your own logo.
 7. **(Optional)** Change the site icon by replacing `/public/icon.png` with your own icon, use a square (1:1) image for best results.
+8. **(Optional)** Change the site name by replace `Ripper+` in `/.env`
 9. **(Optional)** Add any advertisement codes in `/index.html` (Adsterra, Clickadu, etc.)
 10. Run `npm run build` in the terminal to build the production files
-11. Upload the contents of the `/dist` folder to production
+11. Upload the contents of the `/dist` folder to production. (**ObiNode**, Netlify, etc.)
 
 ## ☁️ ObiNode
 #### How to host on ObiNode for FREE!
