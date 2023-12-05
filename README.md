@@ -1,4 +1,4 @@
-# ![Ripper Stream](https://assets.lol/media/streaming-screenshot-1-2023-03-17.png)
+# ![Ripper Stream](https://assets.lol/media/streaming-screenshot-1-2023-12-04.jpg)
 
 ## 🔗 Links
 - **[Demo](https://rstream.cc)**
@@ -6,7 +6,7 @@
 - **[ripper.lol](https://ripper.lol)**
 
 ## 🖥️ Requirements
-- Static Web Hosting - **[ObiNode](https://l.obinode.com/lhDqRb)**
+- Static Web Hosting - **[ObiNode](https://obinode.com)**
 
 ## 📂 Download
 
@@ -28,7 +28,7 @@
 
 ## ☁️ ObiNode
 #### How to host on ObiNode for FREE!
-1. Go to **[ObiNode](https://l.obinode.com/cNi7ms)** and create an account
+1. Go to **[ObiNode](https://obinode.com)** and create an account
 2. Create a new site in the dashboard
 3. Click on the site and go to the **"Deploy"** tab
 4. Click the upload zone and upload the `/dist` folder
