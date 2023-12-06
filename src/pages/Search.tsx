@@ -29,7 +29,7 @@ export default function Search() {
     setData(undefined);
     setQuery(query);
 
-    const req = await fetch(`https://api.riptv.net/v3/search?query=${query}`);
+    const req = await fetch(`${import.meta.env.VITE_APP_API}/search?q=${query}`);
     const res = await req.json();
 
     if (!res.success) {
@@ -73,7 +73,7 @@ export default function Search() {
       <div className="page">
         <h1 className="page-title">{query}</h1>
 
-        <div className="page-cards">{data && data.map(media => <Card key={media.id + media.type} {...media} poster={(media as unknown as { image: string }).image} />)}</div>
+        <div className="page-cards">{data && data.map(media => <Card key={media.id + media.type} {...media} />)}</div>
       </div>
     </>
   );
