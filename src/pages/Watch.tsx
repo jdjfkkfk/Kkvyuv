@@ -61,9 +61,7 @@ export default function Watch() {
 
       <div className="player">
         <div className="player-controls">
-          <i className="fa-regular fa-arrow-left" onClick={() => nav(-1)}></i>
-
-          <i className="fa-regular fa-home" onClick={() => nav('/')}></i>
+          <i className="fa-regular fa-arrow-left" onClick={() => nav(`/${type}/${id}`)}></i>
 
           {type === 'series' && episode < maxEpisodes && <i className="fa-regular fa-forward-step right" onClick={() => nav(`/watch/${id}?s=${season}&e=${episode + 1}&me=${maxEpisodes}`)}></i>}
         </div>
