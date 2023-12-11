@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import p from '@/../package.json';
-
 import MediaType from '@/types/MediaType';
 
 export default function Watch() {
@@ -25,7 +23,7 @@ export default function Watch() {
     const season = search.get('s');
     const maxEpisodes = search.get('me');
 
-    let _params = `?v=${p.version}&n=${import.meta.env.VITE_APP_NAME}`;
+    let _params = `?v=3.1.0&n=${import.meta.env.VITE_APP_NAME}`;
 
     if (episode && season) {
       setType('series');
