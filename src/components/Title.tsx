@@ -25,6 +25,7 @@ export default function Title({ type, id }: TitleProps) {
   const [data, setData] = useState<Movie | Series>();
   const [season, setSeason] = useState(1);
   const [episodes, setEpisodes] = useState<EpisodeT[]>();
+  const [maxEpisodes, setMaxEpisodes] = useState(1);
 
   const [wished, setWished] = useState(false);
   const [extendSuggestions, setExtendSuggestions] = useState(false);
@@ -76,6 +77,7 @@ export default function Title({ type, id }: TitleProps) {
     const data = res.data;
 
     setEpisodes(data);
+    setMaxEpisodes(data.length);
   }
 
   function onSeasonChange(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -260,7 +262,7 @@ export default function Title({ type, id }: TitleProps) {
                     episodes.map((episode, i) => {
                       if (!extendEpisodes && i > 9) return null;
 
-                      return <Episode key={i} {...episode} id={data.id} season={season} />;
+                      return <Episode key={i} {...episode} id={data.id} season={season} maxEpisodes={maxEpisodes} />;
                     })}
                 </div>
 

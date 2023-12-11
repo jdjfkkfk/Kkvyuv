@@ -19,19 +19,19 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
   const [wished, setWished] = useState(false);
 
   function onCardHover() {
-    if(active) return;
+    if (active) return;
 
     setActive(true);
   }
 
   function onCardLeave() {
-    if(!active) return;
+    if (!active) return;
 
     setActive(false);
   }
 
   function onCardClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    if(active) return;
+    if (active) return;
 
     e.preventDefault();
 
@@ -39,9 +39,9 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
   }
 
   function onWindowClick(e: MouseEvent) {
-    if(!active) return;
+    if (!active) return;
 
-    if((Ref || ref).current?.contains(e.target as Node)) return;
+    if ((Ref || ref).current?.contains(e.target as Node)) return;
 
     setActive(false);
   }
@@ -88,12 +88,13 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
 
   return (
     <Link
-    ref={Ref || ref}
-    className={`media-card ${active ? 'active' : ''}`}
-    to={`/watch/${id}${type === 'series' ? '?s=1&e=1' : ''}`}
-    onClick={onCardClick}
-    onMouseOver={onCardHover}
-    onMouseLeave={onCardLeave}>
+      ref={Ref || ref}
+      className={`media-card ${active ? 'active' : ''}`}
+      to={`/watch/${id}${type === 'series' ? '?s=1&e=1' : ''}`}
+      onClick={onCardClick}
+      onMouseOver={onCardHover}
+      onMouseLeave={onCardLeave}
+    >
       <img src={poster} alt={title} loading="lazy" />
 
       <div className="media-card-actions">

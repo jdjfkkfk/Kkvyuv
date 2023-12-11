@@ -39,7 +39,8 @@
     z-index: 0;
   }
 
-  &:hover, &.active {
+  &:hover,
+  &.active {
     transform: scale(1.1);
 
     &::after {

@@ -429,65 +429,65 @@
 }
 
 @media (max-width: 600px) {
-  .title{
+  .title {
     padding: 0;
   }
 
-  .title-container{
+  .title-container {
     border-radius: 0;
   }
 
-  .title-content{
+  .title-content {
     margin-top: -150px;
   }
 
-  .title-logo{
+  .title-logo {
     height: auto;
     max-width: 70%;
   }
 
-  .title-tagline{
+  .title-tagline {
     font-size: 16px;
   }
 
-  .title-section{
+  .title-section {
     margin-top: 30px;
   }
 
-  .title-grid{
+  .title-grid {
     grid-template-columns: 100%;
     row-gap: 20px;
   }
 
-  .title-col{
+  .title-col {
     width: 100%;
 
     padding-right: 0;
   }
 
-  .title-cards{
+  .title-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .episode{
+  .episode {
     flex-direction: column;
   }
 
-  .episode-number{
+  .episode-number {
     display: none;
   }
-  
-.episode-image {
-  width: 100%;
-  min-width: 200px;
-  max-width: 60%;
 
-  aspect-ratio: 16/9;
+  .episode-image {
+    width: 100%;
+    min-width: 200px;
+    max-width: 60%;
 
-  border-radius: 5px;
-}
+    aspect-ratio: 16/9;
 
-  .episode-text{
+    border-radius: 5px;
+  }
+
+  .episode-text {
     width: 100%;
     margin-left: 0;
     margin-top: 20px;

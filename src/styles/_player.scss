@@ -18,20 +18,30 @@
 }
 
 .player-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+
   position: fixed;
 
   top: 30px;
   left: 35px;
-
-  font-size: 38px;
-
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  right: 35px;
 
   z-index: 1;
 }
 
 .player-controls i {
+  font-size: 32px;
+
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
   cursor: pointer;
+
+  &.right{
+    margin-left: auto;
+  }
 }
 
 .player-title {
