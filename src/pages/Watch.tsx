@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import {  useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import p from '@/../package.json';
@@ -29,7 +29,7 @@ export default function Watch() {
 
     if (episode && season) {
       setType('series');
-    
+
       _params += `&s=${season}&e=${episode}`;
 
       setSeason(parseInt(season));
@@ -63,12 +63,9 @@ export default function Watch() {
         <div className="player-controls">
           <i className="fa-regular fa-arrow-left" onClick={() => nav(-1)}></i>
 
-          <i className="fa-regular fa-home" onClick={() => nav("/")}></i>
+          <i className="fa-regular fa-home" onClick={() => nav('/')}></i>
 
-          {
-            (type === "series" && episode < maxEpisodes) &&
-            <i className="fa-regular fa-forward-step right" onClick={() => nav(`/watch/${id}?s=${season}&e=${episode+1}&me=${maxEpisodes}`)}></i>
-          }
+          {type === 'series' && episode < maxEpisodes && <i className="fa-regular fa-forward-step right" onClick={() => nav(`/watch/${id}?s=${season}&e=${episode + 1}&me=${maxEpisodes}`)}></i>}
         </div>
 
         <iframe allowFullScreen referrerPolicy="origin" title="Player" src={`${import.meta.env.VITE_APP_API}/embed/${type}/${id + params}`}></iframe>
