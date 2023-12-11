@@ -22,9 +22,11 @@
 6. **(Optional)** Change the site logo by replacing `/public/logo.png` with your own logo.
 7. **(Optional)** Change the site icon by replacing `/public/icon.png` with your own icon, use a square (1:1) image for best results.
 8. **(Optional)** Change the site name by replacing `Ripper+` in `/.env` and `/index.html`.
-9. **(Optional)** Add any advertisement codes in `/index.html` (Adsterra, Clickadu, etc.)
+9. **(Optional)** Add any advertisement codes in `/index.html` (Like [Adsterra](https://beta.publishers.adsterra.com/referral/PT87awEpeu))
 10. Run `npm run build` in the terminal to build the production files
 11. Upload the contents of the `/dist` folder to production. (**ObiNode**, Netlify, etc.)
+
+[![Adsterra](https://landings-cdn.adsterratech.com/referralBanners/gif/600x250_adsterra_reff.gif)](https://beta.publishers.adsterra.com/referral/PT87awEpeu)
 
 ## ☁️ ObiNode
 #### How to host on ObiNode for FREE!
