@@ -26,7 +26,7 @@
 10. Run `npm run build` in the terminal to build the production files
 11. Upload the contents of the `/dist` folder to production. (**ObiNode**, Netlify, etc.)
 
-[![Adsterra](https://landings-cdn.adsterratech.com/referralBanners/gif/600x250_adsterra_reff.gif)](https://beta.publishers.adsterra.com/referral/PT87awEpeu)
+[![Adsterra](https://landings-cdn.adsterratech.com/referralBanners/gif/468x60_adsterra_reff.gif)](https://beta.publishers.adsterra.com/referral/PT87awEpeu)
 
 ## ☁️ ObiNode
 #### How to host on ObiNode for FREE!
