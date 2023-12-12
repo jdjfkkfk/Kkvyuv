@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Wishlist from '@/utils/Wishlist';
 
 import MediaShort from '@/types/MediaShort';
+import Continue from '@/types/Continue';
 
 interface CardProps extends MediaShort {
   Ref?: React.RefObject<HTMLAnchorElement>;
@@ -17,6 +18,22 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
 
   const [active, setActive] = useState(false);
   const [wished, setWished] = useState(false);
+
+  const [episode, setEpisode] = useState(1);
+  const [season, setSeason] = useState(1);
+
+  function getContinue() {
+    if (type !== 'series') return;
+
+    const cont = localStorage.getItem(`continue_${id}`);
+
+    if (!cont) return;
+
+    const parsed: Continue = JSON.parse(cont);
+
+    setEpisode(parsed.episode);
+    setSeason(parsed.season);
+  }
 
   function onCardHover() {
     if (active) return;
@@ -65,6 +82,8 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
   }
 
   useEffect(() => {
+    getContinue();
+
     setWished(Wishlist.has(id, type));
 
     function onWishlistChange() {
@@ -90,7 +109,7 @@ export default function Card({ id, poster, title, type, Ref }: CardProps) {
     <Link
       ref={Ref || ref}
       className={`media-card ${active ? 'active' : ''}`}
-      to={`/watch/${id}${type === 'series' ? '?s=1&e=1' : ''}`}
+      to={`/watch/${id}${type === 'series' ? `?s=${season}&e=${episode}` : ''}`}
       onClick={onCardClick}
       onMouseOver={onCardHover}
       onMouseLeave={onCardLeave}

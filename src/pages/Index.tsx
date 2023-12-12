@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -8,12 +9,30 @@ import Title from '@/components/Title';
 
 import CollectionT from '@/types/Collection';
 import Hero from '@/types/Hero';
+import MediaShort from '@/types/MediaShort';
 
 export default function Index() {
   const { type, id } = useParams();
 
   const [hero, setHero] = useState<Hero>();
-  const [collections, setCollections] = useState<CollectionT[]>();
+  const [collections, setCollections] = useState<CollectionT[]>([]);
+
+  function getViewed() {
+    const viewed = localStorage.getItem('viewed');
+
+    if (!viewed) {
+      return;
+    }
+
+    console.log(viewed);
+
+    const parsed: MediaShort[] = JSON.parse(viewed);
+
+    collections.push({
+      title: 'Recently Viewed',
+      items: parsed
+    });
+  }
 
   async function getData() {
     const req = await fetch(`${import.meta.env.VITE_APP_API}/browse`);
@@ -25,15 +44,16 @@ export default function Index() {
 
     const data = res.data;
 
-    setCollections(data.collections);
+    setCollections(e => [...e, ...data.collections]);
     setHero(data.hero);
   }
 
   useEffect(() => {
+    getViewed();
     getData();
   }, []);
 
-  if (!collections || !hero) {
+  if (!hero) {
     return <Loading />;
   }
 

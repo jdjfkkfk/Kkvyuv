@@ -9,6 +9,7 @@ import EpisodeT from '@/types/Episode';
 import MediaType from '@/types/MediaType';
 import Movie from '@/types/Movie';
 import Series from '@/types/Series';
+import Continue from '@/types/Continue';
 
 import Card from './Card';
 import Episode from './Episode';
@@ -24,6 +25,7 @@ export default function Title({ type, id }: TitleProps) {
 
   const [data, setData] = useState<Movie | Series>();
   const [season, setSeason] = useState(1);
+  const [episode, setEpisode] = useState(1);
   const [episodes, setEpisodes] = useState<EpisodeT[]>();
   const [maxEpisodes, setMaxEpisodes] = useState(1);
 
@@ -60,9 +62,21 @@ export default function Title({ type, id }: TitleProps) {
 
     setData(data);
 
-    if (type === 'series') {
+    if (type !== 'series') return;
+
+    const cont = localStorage.getItem('continue_' + id);
+
+    if (!cont) {
       getEpisodes();
+      return;
     }
+
+    const parsed: Continue = JSON.parse(cont);
+
+    setSeason(parsed.season);
+    setEpisode(parsed.episode);
+
+    getEpisodes(parsed.season);
   }
 
   async function getEpisodes(season: number = 1) {
@@ -197,9 +211,9 @@ export default function Title({ type, id }: TitleProps) {
             </div>
 
             <div className="title-actions">
-              <Link className="button" to={`/watch/${id}${type === 'series' ? '?s=1&e=1' : ''}`}>
+              <Link className="button" to={`/watch/${id}${type === 'series' ? `?s=${season}&e=${episode}` : ''}`}>
                 <i className="fa-solid fa-play"></i>
-                <span>Play</span>
+                <span>{type === 'series' ? `S${season} E${episode}` : 'Play'}</span>
               </Link>
 
               {wished ? (
@@ -248,7 +262,7 @@ export default function Title({ type, id }: TitleProps) {
                 <div className="title-row">
                   <h3>Episodes</h3>
 
-                  <select className="title-select" onChange={onSeasonChange}>
+                  <select className="title-select" defaultValue={season} onChange={onSeasonChange}>
                     {Array.from({ length: data.seasons }).map((_, i) => (
                       <option key={i} value={i + 1}>
                         Season {i + 1}
